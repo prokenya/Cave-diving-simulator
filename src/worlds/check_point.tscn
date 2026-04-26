@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://uxgceuai4nn5"]
+
+[ext_resource type="Script" uid="uid://bkoy04idnxfr0" path="res://src/worlds/check_point.gd" id="1_7xm46"]
+[ext_resource type="Texture2D" uid="uid://b1td28r5dex1v" path="res://assets/intermediate point.svg" id="2_5ev0m"]
+[ext_resource type="Texture2D" uid="uid://3b6mgm21hu8y" path="res://assets/start.svg" id="2_jswso"]
+[ext_resource type="Texture2D" uid="uid://b3turxygktf44" path="res://assets/end.svg" id="3_l85dd"]
+[ext_resource type="AudioStream" uid="uid://b5eboreiseh4m" path="res://assets/audio/sfx/point_reached.wav" id="5_l85dd"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x1j5w"]
+size = Vector2(100, 100)
+
+[sub_resource type="Gradient" id="Gradient_jswso"]
+offsets = PackedFloat32Array(0.15068494, 0.36301368, 1)
+colors = PackedColorArray(0, 1, 0, 1, 0, 0.105882354, 0, 0, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_l85dd"]
+gradient = SubResource("Gradient_jswso")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[node name="check_point" type="Area2D" unique_id=1310373724]
+position = Vector2(50, -50)
+collision_layer = 0
+collision_mask = 4
+script = ExtResource("1_7xm46")
+sprites = Array[CompressedTexture2D]([ExtResource("2_jswso"), ExtResource("3_l85dd"), ExtResource("2_5ev0m")])
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=113113767]
+shape = SubResource("RectangleShape2D_x1j5w")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1455624404]
+texture = ExtResource("2_jswso")
+
+[node name="status" type="Sprite2D" parent="." unique_id=278404456]
+visible = false
+position = Vector2(-32, -32)
+texture = SubResource("GradientTexture2D_l85dd")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=984468779]
+stream = ExtResource("5_l85dd")
+bus = &"sfx"

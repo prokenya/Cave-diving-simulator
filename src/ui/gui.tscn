@@ -1,0 +1,603 @@
+[gd_scene format=3 uid="uid://bf4owc412q3qx"]
+
+[ext_resource type="Script" uid="uid://cfestdygkcijx" path="res://src/ui/ui.gd" id="1_nt0o0"]
+[ext_resource type="Script" uid="uid://wjpxnhjlc5t" path="res://addons/actions_binder/ActionsBinder.gd" id="2_pot61"]
+[ext_resource type="Script" uid="uid://p2geumgbwcp0" path="res://addons/actions_binder/ActionBindData.gd" id="3_1a18e"]
+[ext_resource type="Script" uid="uid://r53uxfr8q2ex" path="res://addons/actions_binder/ActionsMap.gd" id="4_1w1up"]
+[ext_resource type="AudioStream" uid="uid://bb3dw00n1ijys" path="res://assets/audio/482167__tim_verberne__underwater-ambience.wav" id="5_1a18e"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pot61"]
+bg_color = Color(0.0885599, 0.0885599, 0.0885599, 0.38431373)
+
+[sub_resource type="Theme" id="Theme_pot61"]
+default_font_size = 25
+PanelContainer/styles/panel = SubResource("StyleBoxFlat_pot61")
+
+[sub_resource type="Resource" id="Resource_1a18e"]
+script = ExtResource("3_1a18e")
+action_name = &"move_up"
+display_name = "Up"
+
+[sub_resource type="Resource" id="Resource_1w1up"]
+script = ExtResource("3_1a18e")
+action_name = &"move_down"
+display_name = "Down"
+
+[sub_resource type="Resource" id="Resource_hnlp8"]
+script = ExtResource("3_1a18e")
+action_name = &"move_left"
+display_name = "Left"
+
+[sub_resource type="Resource" id="Resource_lnnwd"]
+script = ExtResource("3_1a18e")
+action_name = &"move_right"
+display_name = "Right"
+
+[sub_resource type="Resource" id="Resource_xjj5p"]
+script = ExtResource("3_1a18e")
+action_name = &"rotate_left"
+display_name = "Rotation to the left"
+
+[sub_resource type="Resource" id="Resource_kmx80"]
+script = ExtResource("3_1a18e")
+action_name = &"rotate_right"
+display_name = "Rotation to the right"
+
+[sub_resource type="Resource" id="Resource_qtc5s"]
+script = ExtResource("3_1a18e")
+action_name = &"Menu"
+
+[sub_resource type="Resource" id="Resource_pot61"]
+script = ExtResource("4_1w1up")
+actions = Array[ExtResource("3_1a18e")]([SubResource("Resource_1a18e"), SubResource("Resource_1w1up"), SubResource("Resource_hnlp8"), SubResource("Resource_lnnwd"), SubResource("Resource_xjj5p"), SubResource("Resource_kmx80"), SubResource("Resource_qtc5s")])
+
+[sub_resource type="Animation" id="Animation_kmhfv"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HBoxContainer/ui/NinePatchRect:patch_margin_left")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [200]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("HBoxContainer/ui/NinePatchRect/menu:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(-0.0333333),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("HBoxContainer/ui/NinePatchRect/menu:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("HBoxContainer/settings/NinePatchRect:patch_margin_right")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("HBoxContainer/settings/VBoxContainer:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("HBoxContainer/settings/VBoxContainer:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("HBoxContainer/guide/NinePatchRect:patch_margin_left")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("HBoxContainer/guide/HBoxContainer/ScrollContainer/VBoxContainer:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("HBoxContainer/guide/HBoxContainer/ScrollContainer/VBoxContainer:modulate")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("HBoxContainer/guide/HBoxContainer/VSeparator:visible")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_pot61"]
+resource_name = "show guide"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HBoxContainer/guide/NinePatchRect:patch_margin_left")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0, 430]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("HBoxContainer/guide/HBoxContainer/ScrollContainer/VBoxContainer:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1, 1.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("HBoxContainer/guide/HBoxContainer/ScrollContainer/VBoxContainer:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(1, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("HBoxContainer/guide/HBoxContainer/VSeparator:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(1, 1.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="Animation" id="Animation_fyndt"]
+resource_name = "show menu"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HBoxContainer/ui/NinePatchRect:patch_margin_left")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0, 200]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("HBoxContainer/ui/NinePatchRect/menu:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1, 1.01),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("HBoxContainer/ui/NinePatchRect/menu:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(1, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_rlaii"]
+resource_name = "show settings"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HBoxContainer/settings/NinePatchRect:patch_margin_right")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0, 430]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("HBoxContainer/settings/VBoxContainer:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1, 1.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("HBoxContainer/settings/VBoxContainer:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(1, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_rlaii"]
+_data = {
+&"RESET": SubResource("Animation_kmhfv"),
+&"show guide": SubResource("Animation_pot61"),
+&"show menu": SubResource("Animation_fyndt"),
+&"show settings": SubResource("Animation_rlaii")
+}
+
+[node name="GUI" type="CanvasLayer" unique_id=935178428]
+layer = 128
+script = ExtResource("1_nt0o0")
+
+[node name="gui" type="Control" parent="." unique_id=1106685856]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_pot61")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="gui" unique_id=1885197856]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+alignment = 2
+
+[node name="settings" type="PanelContainer" parent="gui/HBoxContainer" unique_id=578995674]
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="gui/HBoxContainer/settings" unique_id=1079850859]
+visible = false
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 1
+alignment = 1
+
+[node name="Label" type="Label" parent="gui/HBoxContainer/settings/VBoxContainer" unique_id=617699805]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "controls:"
+
+[node name="ActionsBinder" type="GridContainer" parent="gui/HBoxContainer/settings/VBoxContainer" unique_id=1837045153]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 6
+columns = 2
+script = ExtResource("2_pot61")
+actions = SubResource("Resource_pot61")
+metadata/_custom_type_script = "uid://wjpxnhjlc5t"
+
+[node name="HSeparator" type="HSeparator" parent="gui/HBoxContainer/settings/VBoxContainer" unique_id=1564095118]
+layout_mode = 2
+
+[node name="GridContainer" type="GridContainer" parent="gui/HBoxContainer/settings/VBoxContainer" unique_id=107874133]
+layout_mode = 2
+size_flags_horizontal = 4
+columns = 2
+
+[node name="Label" type="Label" parent="gui/HBoxContainer/settings/VBoxContainer/GridContainer" unique_id=1146596971]
+layout_mode = 2
+size_flags_horizontal = 2
+text = "sfx"
+horizontal_alignment = 2
+
+[node name="SFXSpinBox" type="SpinBox" parent="gui/HBoxContainer/settings/VBoxContainer/GridContainer" unique_id=1059715580]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_stretch_ratio = 0.5
+alignment = 1
+
+[node name="Label2" type="Label" parent="gui/HBoxContainer/settings/VBoxContainer/GridContainer" unique_id=1850951068]
+layout_mode = 2
+size_flags_horizontal = 2
+text = "music"
+horizontal_alignment = 2
+
+[node name="music_spin_box" type="SpinBox" parent="gui/HBoxContainer/settings/VBoxContainer/GridContainer" unique_id=1591290379]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.5
+alignment = 1
+
+[node name="show hint" type="CheckButton" parent="gui/HBoxContainer/settings/VBoxContainer" unique_id=210622930]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "show hints"
+
+[node name="hard mode" type="CheckButton" parent="gui/HBoxContainer/settings/VBoxContainer" unique_id=1414868364]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "hard mode"
+
+[node name="NinePatchRect" type="NinePatchRect" parent="gui/HBoxContainer/settings" unique_id=2029584040]
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="guide" type="PanelContainer" parent="gui/HBoxContainer" unique_id=1385967696]
+layout_mode = 2
+size_flags_horizontal = 2
+
+[node name="NinePatchRect" type="NinePatchRect" parent="gui/HBoxContainer/guide" unique_id=172963191]
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="gui/HBoxContainer/guide" unique_id=1671575713]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="VSeparator" type="VSeparator" parent="gui/HBoxContainer/guide/HBoxContainer" unique_id=1704557685]
+visible = false
+layout_mode = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="gui/HBoxContainer/guide/HBoxContainer" unique_id=1723885223]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="gui/HBoxContainer/guide/HBoxContainer/ScrollContainer" unique_id=1699968914]
+visible = false
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 1
+alignment = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="gui/HBoxContainer/guide/HBoxContainer/ScrollContainer/VBoxContainer" unique_id=2003898175]
+layout_mode = 2
+size_flags_vertical = 0
+bbcode_enabled = true
+text = "[color=green]About the game:[/color]
+"
+fit_content = true
+horizontal_alignment = 1
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="gui/HBoxContainer/guide/HBoxContainer/ScrollContainer/VBoxContainer" unique_id=1181328643]
+layout_mode = 2
+size_flags_vertical = 2
+bbcode_enabled = true
+text = "[b]Main goal:[/b]
+Reach the [b]\"End\"[/b] sign, visit all points of interest, and [color=green]return to start safely[/color].
+
+[b]Gameplay basics:[/b]
+• Explore underwater caves.
+• Plan your route carefully to ensure you can make it back.
+
+[b]Features:[/b]
+• The player swims [b]2x faster[/b] in the direction they are facing.
+• Movement in other directions is slower.
+• [color=red]Oxygen consumption increases with depth[/color].
+
+[b]Tips:[/b]
+• Use your facing direction for faster movement."
+fit_content = true
+horizontal_alignment = 1
+
+[node name="ui" type="PanelContainer" parent="gui/HBoxContainer" unique_id=1344077814]
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="NinePatchRect" type="NinePatchRect" parent="gui/HBoxContainer/ui" unique_id=981065673]
+layout_mode = 2
+patch_margin_left = 200
+
+[node name="menu" type="VBoxContainer" parent="gui/HBoxContainer/ui/NinePatchRect" unique_id=1458742949]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Container" type="Container" parent="gui/HBoxContainer/ui/NinePatchRect/menu" unique_id=1814364846]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="resume button" type="Button" parent="gui/HBoxContainer/ui/NinePatchRect/menu" unique_id=674103337]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+focus_mode = 0
+text = "Resume"
+
+[node name="Play" type="Button" parent="gui/HBoxContainer/ui/NinePatchRect/menu" unique_id=251477751]
+unique_name_in_owner = true
+layout_mode = 2
+focus_mode = 0
+text = "Play"
+
+[node name="settings" type="Button" parent="gui/HBoxContainer/ui/NinePatchRect/menu" unique_id=313455479]
+unique_name_in_owner = true
+layout_mode = 2
+focus_mode = 0
+text = "settings"
+
+[node name="guide" type="Button" parent="gui/HBoxContainer/ui/NinePatchRect/menu" unique_id=2098004135]
+unique_name_in_owner = true
+layout_mode = 2
+focus_mode = 0
+text = "guide"
+
+[node name="main_menu_button" type="Button" parent="gui/HBoxContainer/ui/NinePatchRect/menu" unique_id=785891289]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+focus_mode = 0
+text = "main menu"
+
+[node name="name_line" type="LineEdit" parent="gui/HBoxContainer/ui/NinePatchRect/menu" unique_id=574739590]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Sep"
+placeholder_text = "name"
+alignment = 1
+max_length = 13
+expand_to_text_length = true
+
+[node name="HSeparator2" type="HSeparator" parent="gui/HBoxContainer/ui/NinePatchRect/menu" unique_id=2026305278]
+layout_mode = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="gui/HBoxContainer/ui/NinePatchRect/menu" unique_id=426349377]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 1.3
+
+[node name="levels" type="VBoxContainer" parent="gui/HBoxContainer/ui/NinePatchRect/menu/ScrollContainer" unique_id=270743385]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="guianimation" type="AnimationPlayer" parent="gui" unique_id=553326475]
+unique_name_in_owner = true
+libraries/ = SubResource("AnimationLibrary_rlaii")
+speed_scale = 5.0
+
+[node name="transirion layer" type="CanvasLayer" parent="." unique_id=1443694726]
+layer = 128
+
+[node name="transition" type="ColorRect" parent="transirion layer" unique_id=709795838]
+unique_name_in_owner = true
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0)
+
+[node name="end" type="CanvasLayer" parent="." unique_id=753740560]
+unique_name_in_owner = true
+layer = 128
+visible = false
+
+[node name="end" type="PanelContainer" parent="end" unique_id=1741230103]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="end_label" type="Label" parent="end/end" unique_id=7697379]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 45
+text = "the end!
+thanks for playing"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1823883477]
+stream = ExtResource("5_1a18e")
+autoplay = true
+bus = &"music"
+
+[connection signal="value_changed" from="gui/HBoxContainer/settings/VBoxContainer/GridContainer/SFXSpinBox" to="gui" method="_on_spinsfx_value_changed"]
+[connection signal="value_changed" from="gui/HBoxContainer/settings/VBoxContainer/GridContainer/music_spin_box" to="gui" method="_on_spinmusic_value_changed"]
+[connection signal="pressed" from="gui/HBoxContainer/settings/VBoxContainer/show hint" to="." method="_on_show_hint_pressed"]
+[connection signal="toggled" from="gui/HBoxContainer/settings/VBoxContainer/hard mode" to="." method="_on_show_hint_2_toggled"]
+[connection signal="pressed" from="gui/HBoxContainer/ui/NinePatchRect/menu/resume button" to="gui" method="open_close_menu"]
+[connection signal="pressed" from="gui/HBoxContainer/ui/NinePatchRect/menu/Play" to="gui" method="_on_play_pressed"]
+[connection signal="pressed" from="gui/HBoxContainer/ui/NinePatchRect/menu/settings" to="gui" method="_on_how_to_play_pressed"]
+[connection signal="pressed" from="gui/HBoxContainer/ui/NinePatchRect/menu/main_menu_button" to="gui" method="_on_main_menu_pressed"]

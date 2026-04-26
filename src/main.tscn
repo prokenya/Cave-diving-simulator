@@ -1,0 +1,51 @@
+[gd_scene format=3 uid="uid://dteldeikepj7s"]
+
+[ext_resource type="Script" uid="uid://dxtdc6hsopllp" path="res://src/Main.gd" id="1_eewff"]
+[ext_resource type="PackedScene" uid="uid://coqwkhyflgqmn" path="res://src/worlds/world0.tscn" id="2_gh0ne"]
+[ext_resource type="PackedScene" uid="uid://c1bhg2vrmekyg" path="res://src/worlds/world1.tscn" id="3_3cfgd"]
+[ext_resource type="PackedScene" uid="uid://bf4owc412q3qx" path="res://src/ui/gui.tscn" id="3_5q4o7"]
+[ext_resource type="PackedScene" uid="uid://tr3s03e7kpy5" path="res://src/worlds/world2.tscn" id="4_fyndt"]
+
+[sub_resource type="Gradient" id="Gradient_3cfgd"]
+offsets = PackedFloat32Array(0, 0.14383562, 0.369863, 1)
+colors = PackedColorArray(0.22639456, 0.45144153, 1, 1, 0.09223482, 0.18392062, 0.54451704, 1, 0, 0, 0.26666668, 1, 0, 0, 0.26666668, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_5q4o7"]
+gradient = SubResource("Gradient_3cfgd")
+width = 512
+height = 512
+fill_from = Vector2(1, 0)
+fill_to = Vector2(1, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3cfgd"]
+size = Vector2(256, 256)
+
+[node name="Main" type="Node" unique_id=1860317162 node_paths=PackedStringArray("gui")]
+script = ExtResource("1_eewff")
+worlds = Array[PackedScene]([ExtResource("2_gh0ne"), ExtResource("3_3cfgd"), ExtResource("4_fyndt")])
+gui = NodePath("GUI")
+
+[node name="Sprite2D4" type="Sprite2D" parent="." unique_id=1356074985]
+self_modulate = Color(1, 1, 1, 0.49019608)
+position = Vector2(0, 5631.715)
+scale = Vector2(25.905, 22)
+texture = SubResource("GradientTexture2D_5q4o7")
+
+[node name="GUI" parent="." unique_id=935178428 instance=ExtResource("3_5q4o7")]
+
+[node name="Sprite2D3" type="Sprite2D" parent="." unique_id=1535655122]
+position = Vector2(0, 5631.715)
+scale = Vector2(25.905, 22)
+texture = SubResource("GradientTexture2D_5q4o7")
+
+[node name="water" type="Area2D" parent="Sprite2D3" unique_id=1096050051]
+position = Vector2(0, -200.1315)
+scale = Vector2(1.8332366, 1.8332274)
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D3/water" unique_id=1577263336]
+position = Vector2(8.422826, 97.592415)
+shape = SubResource("RectangleShape2D_3cfgd")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1344761152]

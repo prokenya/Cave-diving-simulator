@@ -1,0 +1,58 @@
+[gd_scene format=3 uid="uid://c1bhg2vrmekyg"]
+
+[ext_resource type="Script" uid="uid://bmnu24k2qtosw" path="res://src/worlds/world.gd" id="1_iidk5"]
+[ext_resource type="PackedScene" uid="uid://uxgceuai4nn5" path="res://src/worlds/check_point.tscn" id="2_0o7lg"]
+[ext_resource type="Script" uid="uid://c2nburn22kywt" path="res://src/worlds/poligon_to_static.gd" id="2_gdqrm"]
+[ext_resource type="PackedScene" uid="uid://c87olxy7pwgiv" path="res://src/player/player.tscn" id="4_xwlqo"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_5q4o7"]
+friction = 0.4
+
+[node name="world" type="Node2D" unique_id=1986351457 node_paths=PackedStringArray("intermediate_points_left")]
+script = ExtResource("1_iidk5")
+intermediate_points_left = [NodePath("points/IntermediatePoint"), NodePath("points/IntermediatePoint2"), NodePath("points/IntermediatePoint3"), NodePath("points/IntermediatePoint4")]
+
+[node name="points" type="Node2D" parent="." unique_id=733779626]
+
+[node name="start" parent="points" unique_id=1310373724 instance=ExtResource("2_0o7lg")]
+position = Vector2(-256, -32)
+rotation = 1.5707964
+
+[node name="end" parent="points" unique_id=145009773 instance=ExtResource("2_0o7lg")]
+position = Vector2(-640.0001, 4736)
+rotation = -0.2617994
+state = 1
+
+[node name="IntermediatePoint" parent="points" unique_id=979166289 instance=ExtResource("2_0o7lg")]
+position = Vector2(688, 2192)
+rotation = -0.10732537
+state = 2
+
+[node name="IntermediatePoint2" parent="points" unique_id=1099753260 instance=ExtResource("2_0o7lg")]
+position = Vector2(1224, 4400.0005)
+rotation = -0.10732537
+state = 2
+
+[node name="IntermediatePoint3" parent="points" unique_id=358788324 instance=ExtResource("2_0o7lg")]
+position = Vector2(-584.00006, 3456)
+rotation = -0.10732537
+state = 2
+
+[node name="IntermediatePoint4" parent="points" unique_id=2138589508 instance=ExtResource("2_0o7lg")]
+position = Vector2(-63.999878, 4256)
+rotation = 1.0471976
+state = 2
+
+[node name="Polygon2D" type="Polygon2D" parent="." unique_id=2111151967]
+position = Vector2(-48, 40)
+color = Color(0, 0, 0, 1)
+invert_enabled = true
+invert_border = 2969.7
+polygon = PackedVector2Array(-256, -224, -248, 176, 24, 896, -144, 1304, -304, 1456, -536, 1840, -296, 1808, 304, 2328, 488, 2296, 624, 2312, 712, 2184, 808, 2176, 912, 2200, 1016, 2384, 1552, 3112, 2032, 3752, 2000, 3872, 1616, 3872, 1400, 4176, 1040, 4328, 912, 4296, 648, 4288, 336, 4200, 40, 3728, -16, 3304, -160, 2984, -344, 2840, -432, 2456, -656, 2728, -880, 2832, -936, 3232, -664, 3448, -240, 3464, -192, 3864, 8, 4384, -744, 4560, -672, 4760, -160, 4640, 552, 4640, 872, 4392, 1128, 4416, 1616, 4344, 1792, 4352, 2184, 3944, 2272, 3912, 1688, 3048, 1152, 2376, 992, 2160, 792, 2096, 656, 2112, 488, 2112, -112, 1688, 32, 1416, 72, 1192, 464, 872, 208, 168, 224, -224)
+
+[node name="Polygon2DCollision" type="StaticBody2D" parent="Polygon2D" unique_id=1900334826]
+physics_material_override = SubResource("PhysicsMaterial_5q4o7")
+script = ExtResource("2_gdqrm")
+
+[node name="player" parent="." unique_id=805210255 instance=ExtResource("4_xwlqo")]
+air = 180.0

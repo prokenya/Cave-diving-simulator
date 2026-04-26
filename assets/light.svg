@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="200"
+   height="300"
+   viewBox="0 0 52.916665 79.375"
+   version="1.1"
+   id="svg1"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs1">
+    <linearGradient
+       id="linearGradient1">
+      <stop
+         style="stop-color:#ffffff;stop-opacity:0.29490945;"
+         offset="0"
+         id="stop1" />
+      <stop
+         style="stop-color:#848484;stop-opacity:0;"
+         offset="1"
+         id="stop2" />
+    </linearGradient>
+    <linearGradient
+       xlink:href="#linearGradient1"
+       id="linearGradient2"
+       x1="26.458332"
+       y1="66.216537"
+       x2="26.458334"
+       y2="13.158456"
+       gradientUnits="userSpaceOnUse" />
+  </defs>
+  <g
+     id="layer1">
+    <path
+       style="fill:url(#linearGradient2);stroke:none;stroke-width:0.141421"
+       id="path1"
+       d="M 52.916664,0 A 26.458332,79.375 0 0 1 39.687498,68.740767 26.458332,79.375 0 0 1 13.229165,68.740765 26.458332,79.375 0 0 1 0,0 h 26.458332 z" />
+  </g>
+</svg>

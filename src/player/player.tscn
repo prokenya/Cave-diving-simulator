@@ -1,0 +1,184 @@
+[gd_scene format=3 uid="uid://c87olxy7pwgiv"]
+
+[ext_resource type="Script" uid="uid://crvavooclcb5x" path="res://src/player/player.gd" id="1_4anbu"]
+[ext_resource type="Texture2D" uid="uid://28dynd8niu5g" path="res://assets/body.svg" id="2_mf2ua"]
+[ext_resource type="Texture2D" uid="uid://cs32uanqm6awp" path="res://assets/head.svg" id="2_rxibo"]
+[ext_resource type="Texture2D" uid="uid://lhenb7amtkx" path="res://assets/light.svg" id="4_5f2sf"]
+[ext_resource type="Texture2D" uid="uid://ditpwvks0rnf" path="res://assets/leg.svg" id="4_244u8"]
+
+[sub_resource type="Curve" id="Curve_244u8"]
+_limits = [1.0, 5.0, 0.0, 10000.0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(5891.09, 1.8988767), 0.0003566614, 0.0003566614, 0, 0, Vector2(10000, 5), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5q4o7"]
+radius = 24.0
+height = 105.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3cfgd"]
+radius = 24.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3cfgd"]
+radius = 12.0
+height = 57.0
+
+[node name="player" type="Node2D" unique_id=805210255 node_paths=PackedStringArray("body", "air_timer")]
+script = ExtResource("1_4anbu")
+body = NodePath("body")
+air_timer = NodePath("air_timer")
+air_rate_curve = SubResource("Curve_244u8")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1696767822]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer" unique_id=1076330888]
+offset_right = 128.0
+offset_bottom = 85.0
+
+[node name="air_rate" type="Label" parent="CanvasLayer/VBoxContainer" unique_id=297565589]
+unique_name_in_owner = true
+layout_mode = 2
+text = "air consumption rate:"
+
+[node name="GridContainer" type="GridContainer" parent="CanvasLayer/VBoxContainer" unique_id=536868658]
+layout_mode = 2
+size_flags_vertical = 3
+columns = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/VBoxContainer/GridContainer" unique_id=1494597129]
+layout_mode = 2
+text = "air"
+
+[node name="AirProgressBar" type="ProgressBar" parent="CanvasLayer/VBoxContainer/GridContainer" unique_id=220170047]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+value = 100.0
+
+[node name="Label2" type="Label" parent="CanvasLayer/VBoxContainer/GridContainer" unique_id=813139330]
+layout_mode = 2
+text = "hp"
+
+[node name="HpProgressBar" type="ProgressBar" parent="CanvasLayer/VBoxContainer/GridContainer" unique_id=177050519]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+value = 100.0
+
+[node name="IntermediatePoints" type="Label" parent="CanvasLayer/VBoxContainer" unique_id=1399210960]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Points of interest left"
+
+[node name="hint" type="Label" parent="CanvasLayer/VBoxContainer" unique_id=1890029566]
+unique_name_in_owner = true
+layout_mode = 2
+text = "hint:"
+
+[node name="body" type="RigidBody2D" parent="." unique_id=2000370062]
+position = Vector2(0, -56)
+collision_layer = 5
+mass = 40.0
+linear_damp = 1.0
+angular_damp = 1.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="body" unique_id=1529449633]
+shape = SubResource("CapsuleShape2D_5q4o7")
+
+[node name="Camera2D" type="Camera2D" parent="body" unique_id=729612551]
+unique_name_in_owner = true
+
+[node name="body_area" type="Area2D" parent="body" unique_id=46489953]
+unique_name_in_owner = true
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="body/body_area" unique_id=172139827]
+shape = SubResource("CapsuleShape2D_5q4o7")
+
+[node name="Body" type="Sprite2D" parent="body" unique_id=1946636944]
+texture = ExtResource("2_mf2ua")
+
+[node name="head" type="RigidBody2D" parent="." unique_id=194843914]
+position = Vector2(0, 48)
+collision_layer = 0
+mass = 20.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="head" unique_id=682526730]
+position = Vector2(0, -176)
+shape = SubResource("CircleShape2D_3cfgd")
+
+[node name="head_area" type="Area2D" parent="head" unique_id=1733872313]
+unique_name_in_owner = true
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="head/head_area" unique_id=1416807843]
+position = Vector2(0, -176)
+shape = SubResource("CircleShape2D_3cfgd")
+
+[node name="Head" type="Sprite2D" parent="head" unique_id=1162876637]
+position = Vector2(0, -176)
+texture = ExtResource("2_rxibo")
+
+[node name="PointLight2D" type="PointLight2D" parent="head" unique_id=1242407340]
+position = Vector2(-152, -192)
+rotation = -1.5707964
+scale = Vector2(0.245, 1)
+energy = 3.64
+texture = ExtResource("4_5f2sf")
+
+[node name="HeadJoint2D2" type="PinJoint2D" parent="." unique_id=1218838619]
+position = Vector2(0, -104)
+node_a = NodePath("../body")
+node_b = NodePath("../head")
+softness = 1.26
+angular_limit_enabled = true
+angular_limit_lower = -0.17453292
+angular_limit_upper = 0.17453292
+
+[node name="legs" type="RigidBody2D" parent="." unique_id=1498834189]
+position = Vector2(0, 16)
+collision_layer = 0
+mass = 5.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="legs" unique_id=1573156508]
+shape = SubResource("CapsuleShape2D_3cfgd")
+
+[node name="Leg" type="Sprite2D" parent="legs" unique_id=1144927273]
+texture = ExtResource("4_244u8")
+
+[node name="legs2" type="RigidBody2D" parent="." unique_id=1201674561]
+position = Vector2(0, 64)
+collision_layer = 0
+mass = 5.0
+linear_damp = 2.0
+angular_damp = 2.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="legs2" unique_id=48280857]
+shape = SubResource("CapsuleShape2D_3cfgd")
+
+[node name="Leg" type="Sprite2D" parent="legs2" unique_id=1947648610]
+texture = ExtResource("4_244u8")
+
+[node name="knee" type="PinJoint2D" parent="." unique_id=592795898]
+position = Vector2(0, -8)
+node_a = NodePath("../body")
+node_b = NodePath("../legs")
+softness = 1.26
+angular_limit_enabled = true
+angular_limit_lower = -0.17453292
+angular_limit_upper = 1.3962634
+
+[node name="knee2" type="PinJoint2D" parent="." unique_id=112578588]
+position = Vector2(0, 40)
+node_a = NodePath("../legs")
+node_b = NodePath("../legs2")
+softness = 1.26
+angular_limit_enabled = true
+angular_limit_lower = -2.0943952
+angular_limit_upper = 0.34906584
+
+[node name="air_timer" type="Timer" parent="." unique_id=604537250]
+autostart = true

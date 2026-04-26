@@ -1,0 +1,68 @@
+[gd_scene format=3 uid="uid://tr3s03e7kpy5"]
+
+[ext_resource type="Script" uid="uid://bmnu24k2qtosw" path="res://src/worlds/world.gd" id="1_m50b8"]
+[ext_resource type="PackedScene" uid="uid://uxgceuai4nn5" path="res://src/worlds/check_point.tscn" id="2_vx3dy"]
+[ext_resource type="Script" uid="uid://c2nburn22kywt" path="res://src/worlds/poligon_to_static.gd" id="3_cyckn"]
+[ext_resource type="Texture2D" uid="uid://cm3evd1o1lpcm" path="res://assets/1.png" id="4_0sebg"]
+[ext_resource type="PackedScene" uid="uid://c87olxy7pwgiv" path="res://src/player/player.tscn" id="5_lylek"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_5q4o7"]
+friction = 0.4
+
+[node name="world" type="Node2D" unique_id=1986351457 node_paths=PackedStringArray("intermediate_points_left")]
+script = ExtResource("1_m50b8")
+intermediate_points_left = [NodePath("points/IntermediatePoint"), NodePath("points/IntermediatePoint2"), NodePath("points/IntermediatePoint3"), NodePath("points/IntermediatePoint4"), NodePath("points/IntermediatePoint5")]
+
+[node name="points" type="Node2D" parent="." unique_id=733779626]
+
+[node name="start" parent="points" unique_id=1310373724 instance=ExtResource("2_vx3dy")]
+position = Vector2(-160, -24)
+
+[node name="end" parent="points" unique_id=1196216055 instance=ExtResource("2_vx3dy")]
+position = Vector2(-40, 9656)
+state = 1
+
+[node name="IntermediatePoint" parent="points" unique_id=60008113 instance=ExtResource("2_vx3dy")]
+position = Vector2(-1599.9999, 1384)
+rotation = -0.2617994
+state = 2
+
+[node name="IntermediatePoint2" parent="points" unique_id=1291460152 instance=ExtResource("2_vx3dy")]
+position = Vector2(8.000026, 3760)
+rotation = 0.2617994
+state = 2
+
+[node name="IntermediatePoint3" parent="points" unique_id=972117688 instance=ExtResource("2_vx3dy")]
+position = Vector2(-280.00012, 4744.0005)
+rotation = -2.3561945
+state = 2
+
+[node name="IntermediatePoint4" parent="points" unique_id=1475900144 instance=ExtResource("2_vx3dy")]
+position = Vector2(680.0001, 9272)
+rotation = -0.5235988
+state = 2
+
+[node name="IntermediatePoint5" parent="points" unique_id=167445539 instance=ExtResource("2_vx3dy")]
+position = Vector2(-3103.9995, 3735.9995)
+rotation = -0.5235988
+state = 2
+
+[node name="Polygon2D" type="Polygon2D" parent="." unique_id=2111151967]
+position = Vector2(-48, 40)
+color = Color(0, 0, 0, 1)
+invert_enabled = true
+invert_border = 2969.7
+polygon = PackedVector2Array(-339, -151, -219, -31, -51, -15, -3, 385, -3, 1049, -355, 1065, -611, 1017, -1048, 1040, -1141.4867, 995.6472, -1168, 704, -1328, 496, -1752, 496, -1912, 728, -1936, 1080, -1992, 1192, -2288, 1816, -2808, 2464, -2944, 2664, -2944, 2832, -3272, 3280, -3496, 3408, -3568, 3576, -3512, 3728, -3256, 3784, -2928, 3688, -2856, 3416, -2848, 2912, -2800, 2736, -2672, 2552, -2064, 2016, -1640, 1416, -1312, 1336, -1184, 1176, -1104, 1144, -619, 1153, -227, 1137, 5, 1153, 101, 2633, -155, 3081, -225.5542, 3370.644, -419, 3369, -595, 3313, -643, 3385, -667, 3457, -779, 3545, -1139, 3761, -1259, 3889, -1363, 4049, -1491, 4249, -1451, 4497, -1291, 4625, -931, 4777, -627, 4817, -419, 4937, -147, 5041, -35, 5305, 77, 5505, 45, 5817, 77, 6641, 72.82749, 6887.178, 64, 6912, 72, 6936, 32, 8024, 0, 8056, -240, 8096, -280, 8064, -440, 7320, -360, 7184, -264, 7104, -144, 7040, -24, 6992, 8, 6944, -4.697357, 6899.7397, -56, 6824, -176, 6784, -256, 6736, -272, 6672, -304, 6536, -384, 6408, -552, 6520, -720, 6672, -616, 6688, -488, 6712, -352, 6680, -296, 6776, -216, 6832, -136, 6904, -112, 6936, -144, 6976, -344, 7088, -464, 7184, -520, 7344, -368, 8096, -391.06772, 8153.1714, -747, 8665, -595, 9449, -120, 9656, 216, 9664, 376, 9272, 720, 9264, 1029, 9105, 784, 8800, 757, 8521, 152, 8032, 128, 7992, 125, 7337, 213, 5713, 173, 5577, 141, 5321, 29, 5153, 37, 5049, -19, 5009, -59, 4873, -275, 4585, -507, 4601, -643, 4745, -899, 4713, -1147, 4601, -1331, 4489, -1403, 4273, -1299, 4081, -1075, 3809, -723, 3657, -635, 3569, -587, 3473, -467, 3417, -259, 3489, -307, 3705, 301, 3801, 613, 3345, 205, 2641, 149, 1201, 165, 1089, 141, 945, 77, 401, 205, 17, 157, -311, 77, -383, -27, -407, -219, -343)
+
+[node name="Polygon2DCollision" type="StaticBody2D" parent="Polygon2D" unique_id=1900334826]
+physics_material_override = SubResource("PhysicsMaterial_5q4o7")
+script = ExtResource("3_cyckn")
+
+[node name="1" type="Sprite2D" parent="Polygon2D" unique_id=512778251]
+visible = false
+position = Vector2(-280.00003, 1432.0001)
+scale = Vector2(0.1778688, 0.1725482)
+texture = ExtResource("4_0sebg")
+
+[node name="player" parent="." unique_id=805210255 instance=ExtResource("5_lylek")]
+air = 350.0

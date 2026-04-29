@@ -49,7 +49,12 @@ var dead:bool = false
 func _ready() -> void:
 	air_timer.timeout.connect(_on_air_timer_timeout)
 	max_air = air
-	max_return_air = air/3
+	max_return_air = air/2
+	if G.hard_mode:
+		camera.ignore_rotation = false
+	else:
+		camera.ignore_rotation = true
+		camera.rotation = 0
 
 
 func _physics_process(delta: float) -> void:
@@ -58,6 +63,8 @@ func _physics_process(delta: float) -> void:
 	head_in_water = not head_area.get_overlapping_areas().is_empty()
 
 	var dir: Vector2 = Input.get_vector("move_left", "move_right", "move_up", "move_down")
+	if G.hard_mode:
+		dir = dir.rotated(body.rotation)
 
 	if dir:
 		var angle_diff = wrapf(body.rotation - dir.angle() - PI / 2, -PI, PI)
@@ -88,6 +95,11 @@ func _physics_process(delta: float) -> void:
 	
 
 func _on_air_timer_timeout():
+	if G.hard_mode:
+		G.main.world.player.camera.ignore_rotation = false
+	else:
+		G.main.world.player.camera.ignore_rotation = true
+		G.main.world.player.camera.rotation = 0
 	var delta:float = air_rate * air_rate_curve.sample(head_area.global_position.y)
 	if head_in_water:
 		air -= delta

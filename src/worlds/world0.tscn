@@ -44,7 +44,7 @@ physics_material_override = SubResource("PhysicsMaterial_5q4o7")
 script = ExtResource("1_1h447")
 
 [node name="player" parent="." unique_id=805210255 instance=ExtResource("3_1h447")]
-air = 140.0
+air = 160.0
 
 [node name="1" type="Sprite2D" parent="." unique_id=512778251]
 visible = false

@@ -1,0 +1,112 @@
+[gd_scene format=3 uid="uid://g5nwdn2ufkok"]
+
+[ext_resource type="Script" uid="uid://bmnu24k2qtosw" path="res://src/worlds/world.gd" id="1_p5u32"]
+[ext_resource type="PackedScene" uid="uid://uxgceuai4nn5" path="res://src/worlds/check_point.tscn" id="2_dxnu1"]
+[ext_resource type="Script" uid="uid://c2nburn22kywt" path="res://src/worlds/poligon_to_static.gd" id="2_kql4w"]
+[ext_resource type="Texture2D" uid="uid://cm3evd1o1lpcm" path="res://assets/1.png" id="3_dxnu1"]
+[ext_resource type="PackedScene" uid="uid://c87olxy7pwgiv" path="res://src/player/player.tscn" id="4_0b0d2"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_5q4o7"]
+friction = 0.4
+
+[node name="world" type="Node2D" unique_id=1986351457 node_paths=PackedStringArray("intermediate_points_left")]
+script = ExtResource("1_p5u32")
+intermediate_points_left = [NodePath("points/check_point"), NodePath("points/check_point2"), NodePath("points/check_point3"), NodePath("points/check_point4"), NodePath("points/check_point5"), NodePath("points/check_point6"), NodePath("points/check_point7"), NodePath("points/check_point8")]
+
+[node name="points" type="Node2D" parent="." unique_id=733779626]
+
+[node name="check_point" parent="points" unique_id=1310373724 instance=ExtResource("2_dxnu1")]
+position = Vector2(-40, 3944)
+rotation = -1.5707964
+state = 2
+
+[node name="check_point2" parent="points" unique_id=1964108319 instance=ExtResource("2_dxnu1")]
+position = Vector2(2952, 2792)
+rotation = -1.5707964
+state = 2
+
+[node name="check_point3" parent="points" unique_id=859511876 instance=ExtResource("2_dxnu1")]
+position = Vector2(-1008, 8192)
+rotation = 1.5707964
+state = 2
+
+[node name="check_point4" parent="points" unique_id=58691646 instance=ExtResource("2_dxnu1")]
+position = Vector2(32, 11168)
+state = 2
+
+[node name="check_point5" parent="points" unique_id=1946427384 instance=ExtResource("2_dxnu1")]
+position = Vector2(-2600, 7520)
+state = 2
+
+[node name="check_point6" parent="points" unique_id=1368805185 instance=ExtResource("2_dxnu1")]
+position = Vector2(-392, 6952)
+state = 2
+
+[node name="check_point7" parent="points" unique_id=1973509371 instance=ExtResource("2_dxnu1")]
+position = Vector2(-360, 4616)
+state = 2
+
+[node name="check_point8" parent="points" unique_id=1982286550 instance=ExtResource("2_dxnu1")]
+position = Vector2(-328, 5352)
+state = 2
+
+[node name="start" parent="points" unique_id=424017692 instance=ExtResource("2_dxnu1")]
+position = Vector2(7568, -71.999756)
+rotation = -0.5235988
+
+[node name="end" parent="points" unique_id=1019866983 instance=ExtResource("2_dxnu1")]
+position = Vector2(-296, 4104)
+rotation = 3.1415927
+state = 1
+
+[node name="Polygon2D" type="Polygon2D" parent="." unique_id=2111151967]
+position = Vector2(-128, -72)
+color = Color(0, 0, 0, 1)
+invert_enabled = true
+invert_border = 2969.7
+polygon = PackedVector2Array(-1048, 4448, -1240, 4272, -1464, 4336, -1600, 4472, -1520, 4752, -1848, 5232, -1752, 5472, -1856, 5656, -4152, 6744, -4232, 7904, -4088, 8608, -4072, 9808, -4456, 10936, -3704, 10968, -160, 11272, 1624, 11336, 2480, 11096, 3552, 11104, 3464, 10256, 3032, 8856, 3112, 8032, 2888, 7128, 2912, 5936, 1008, 4784, 910.54443, 4555.911, 464, 4248, 184, 4160, 104, 4048, 120, 3966, 200, 3862, 280, 3686, 456, 3566, 584, 3374, 2064, 2192, 2448, 2192, 2712, 2320, 2904, 2600, 2904, 2880, 2992, 3184, 3032, 3328, 3080, 3480, 3064, 3528, 2992, 3568, 2824, 3416, 2704, 3112, 2544, 2904, 2352, 2880, 2200, 2904, 2056, 3016, 2016, 3256, 2128, 3504, 2328, 3752, 2568, 3936, 3064, 4144, 3416, 4152, 3584, 3960, 3952, 3656, 4176, 3200, 4312, 2840, 4640, 2816, 4768, 2752, 5104, 2824, 5264, 2648, 5304, 2432, 5232, 2192, 5544, 2048, 5648, 1784, 5912, 1664, 6088, 1472, 6032, 1272, 5872, 672, 5944, 368, 6033.1084, 208.21985, 6968, 328, 7608, 112, 8200, -376, 8648, -1040, 7728, -1120, 7880, -360, 7240, 16, 6664, 192, 6102.447, 83.88904, 6176, -48, 6184, -1024, 5936, -304, 5760, 264, 5672, 616, 5720, 1264, 5536, 1192, 5336, 1672, 4784, 1880, 4192, 2440, 4128, 2880, 4016, 3264, 3840, 3616, 3568, 3840, 3328, 4032, 3080, 4032, 2712, 3832, 2456, 3656, 2312, 3560, 2192, 3344, 2120, 3168, 2208, 3008, 2320, 2984, 2472, 2976, 2608, 3176, 2672, 3424, 2840, 3600, 3048, 3664, 3200, 3560, 3088, 3328, 3048, 3152, 3120, 2784, 3136, 2504, 2824, 2224, 2568, 1952, 1808, 2040, 608, 3094, 384, 3494, 200, 3606, 120, 3758, -144, 3862, -80, 4136, -208, 4136, -408, 3974, -576, 3590, -1224, 2320, -1696, 2424, -720, 3774, -512, 3998, -504, 4094, -560, 4184)
+
+[node name="Polygon2DCollision" type="StaticBody2D" parent="Polygon2D" unique_id=1900334826]
+physics_material_override = SubResource("PhysicsMaterial_5q4o7")
+script = ExtResource("2_kql4w")
+
+[node name="1" type="Sprite2D" parent="Polygon2D" unique_id=512778251]
+visible = false
+position = Vector2(-280.00003, 1432.0001)
+scale = Vector2(0.1778688, 0.1725482)
+texture = ExtResource("3_dxnu1")
+
+[node name="player" parent="." unique_id=805210255 instance=ExtResource("4_0b0d2")]
+position = Vector2(-632, 4400)
+air = 900.0
+
+[node name="rock" type="Polygon2D" parent="." unique_id=1745104946]
+position = Vector2(656, 7328)
+color = Color(0, 0, 0, 1)
+invert_border = 2969.7
+polygon = PackedVector2Array(-160, -544, -272, -152, -536, 240, -136, 272, 328, 456, 488, 576, 544, 880, 592, 608, 720, 576, 832, 424, 1048, 912, 1072, 560, 1384, 184, 1504, 520, 1728, 48, 1888, -264, 1832, -496, 2008, -1016, 1536, -1264, 1152, -1328, 888, -1528, 728, -1368, 552, -1320, 496, -1144, 312, -1008, 264, -1112, 248, -1168, 200, -1152, 179.22192, -1056.3641, 128, -1224, 88, -824)
+
+[node name="Polygon2DCollision" type="StaticBody2D" parent="rock" unique_id=335754537]
+physics_material_override = SubResource("PhysicsMaterial_5q4o7")
+script = ExtResource("2_kql4w")
+
+[node name="rock2" type="Polygon2D" parent="." unique_id=1387874594]
+position = Vector2(-1576, 8096.0005)
+rotation = -1.3089969
+color = Color(0, 0, 0, 1)
+invert_border = 2969.7
+polygon = PackedVector2Array(-160, -544, -272, -152, -536, 240, -701.2324, 535.7473, -137.38867, 600.0034, 328, 456, 544, 880, 592, 608, 731.0034, 657.1957, 815.7471, 849.82605, 1048, 912, 1394.4902, 876.9608, 1072, 560, 1260.0532, 498.87268, 1384, 184, 1504, 520, 1728, 48, 1906.2329, 35.85211, 2148.2588, -111.8208, 1888, -264, 1839.2715, -368.5984, 1857.7578, -423.24512, 1958.7686, -417.182, 2049.4272, -449.7561, 1991.4517, -666.12354, 1845.4429, -809.2092, 2008, -1016, 1830.3545, -1360.0743, 1602.1191, -1315.4832, 1152, -1328, 888, -1528, 728, -1368, 552, -1320, 496, -1144, 312, -1008, 264, -1112, 248, -1168, 200, -1152, 179.22192, -1056.3641, 128, -1224, 88, -824)
+
+[node name="Polygon2DCollision" type="StaticBody2D" parent="rock2" unique_id=120160021]
+physics_material_override = SubResource("PhysicsMaterial_5q4o7")
+script = ExtResource("2_kql4w")
+
+[node name="rock3" type="Polygon2D" parent="." unique_id=183693497]
+position = Vector2(-1392, 9864)
+color = Color(0, 0, 0, 1)
+invert_border = 2969.7
+polygon = PackedVector2Array(0, -464, -376, -256, -576, 272, -696, 576, -904, 808, -1384, 40, -1648, 840, -2096, 1176, -1584, 1464, -624, 1312, 176, 1448, 1128, 1424, 1304, 1168, 1312, 1024, 1328, 744, 1224, 128, 1168, -128, 960, 32, 536, -272, 168, -824)
+
+[node name="Polygon2DCollision" type="StaticBody2D" parent="rock3" unique_id=932742394]
+physics_material_override = SubResource("PhysicsMaterial_5q4o7")
+script = ExtResource("2_kql4w")

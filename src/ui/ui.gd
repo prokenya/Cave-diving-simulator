@@ -215,9 +215,5 @@ func _on_show_hint_pressed() -> void:
 
 
 func _on_show_hint_2_toggled(toggled_on: bool) -> void:
-	if toggled_on:
-		G.main.world.player.camera.ignore_rotation = false
-	else:
-		G.main.world.player.camera.ignore_rotation = true
-		G.main.world.player.camera.rotation = 0
+	G.hard_mode = toggled_on
 		

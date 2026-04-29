@@ -133,7 +133,9 @@ func rebind(action: ActionBindData, event: InputEventKey = null, save: bool = fa
 func reset_all():
 	changed_actions = ActionsMap.new()
 	save_input_map()
+	InputMap.load_from_project_settings()
 	load_input_map()
+	show_actions()
 
 
 func save_input_map():
